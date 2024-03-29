@@ -91,8 +91,10 @@ void add_queue(stack_t **head, int n)
 	new_node->n = n;
 	new_node->next = NULL;
 	if (current)
+	{
 		while (current->next)
 			current = current->next;
+	}
 
 	if (!current)
 	{
