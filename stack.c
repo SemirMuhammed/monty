@@ -2,12 +2,13 @@
 /**
  * f_stack - prints the top
  * @head: stack head
- * @counter: line_number
+ * @c: line_number
+ *
  * Return: no return
 */
-void f_stack(stack_t **head, unsigned int counter)
+void f_stack(stack_t **head, unsigned int c)
 {
 	(void)head;
-	(void)counter;
+	(void)c;
 	bus.lifi = 0;
 }

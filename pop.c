@@ -2,22 +2,24 @@
 /**
  * f_pop - prints the top
  * @head: stack head
- * @counter: line_number
+ * @c: line_number
+ *
  * Return: no return
 */
-void f_pop(stack_t **head, unsigned int counter)
+void f_pop(stack_t **head, unsigned int c)
 {
-	stack_t *h;
+	stack_t *temp;
 
 	if (*head == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
-		fclose(bus.file);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", c);
+		fclose(bus.monty_file);
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	*head = h->next;
-	free(h);
+
+	temp = *head;
+	*head = temp->next;
+	free(temp);
 }

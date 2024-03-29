@@ -2,31 +2,32 @@
 /**
  * f_add - adds the top two elements of the stack.
  * @head: stack head
- * @counter: line_number
+ * @c: line_number
+ *
  * Return: no return
 */
-void f_add(stack_t **head, unsigned int counter)
+void f_add(stack_t **head, unsigned int c)
 {
-	stack_t *h;
-	int len = 0, aux;
+	stack_t *temp;
+	int length = 0, num;
 
-	h = *head;
-	while (h)
+	temp = *head;
+	while (temp)
 	{
-		h = h->next;
-		len++;
+		temp = temp->next;
+		length++;
 	}
-	if (len < 2)
+	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
-		fclose(bus.file);
+		fprintf(stderr, "L%d: can't add, stack too short\n", c);
+		fclose(bus.monty_file);
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	aux = h->n + h->next->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
+	temp = *head;
+	num = temp->n + temp->next->n;
+	temp->next->n = num;
+	*head = temp->next;
+	free(temp);
 }
